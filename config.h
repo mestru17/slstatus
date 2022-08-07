@@ -68,7 +68,7 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function         format          argument */
 	{ netspeed_rx_auto, "<\x01 %s",    NULL },
-	{ netspeed_tx_auto, "<\x01 %s",    NULL },
+	{ netspeed_tx_auto, "|\x01 %s",    NULL },
 	{ uptime,           "<\x02 %s",    NULL },
 	{ kernel_release,   "<\x03 %s",    NULL },
 	{ disk_perc,        "<\x04 %s%%",  "/" },
