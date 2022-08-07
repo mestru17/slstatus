@@ -58,6 +58,41 @@
 		return fmt_human((txbytes - oldtxbytes) * 1000 / interval,
 		                 1024);
 	}
+
+	extern const char *run_command(const char *cmd);
+
+	const char *
+	netspeed_get_active_interface(void)
+	{
+		const char *interface;
+
+		interface = run_command("ip link show up | grep -m 1 \"BROADCAST\" | awk -F \": \" '{print $2}'");
+		return interface;
+	}
+
+	const char *
+	netspeed_rx_auto(void)
+	{
+		const char *interface;
+
+		if (!(interface = netspeed_get_active_interface())) {
+			return NULL;
+		}
+
+		return netspeed_rx(interface);
+	}
+
+	const char *
+	netspeed_tx_auto(void)
+	{
+		const char *interface;
+
+		if (!(interface = netspeed_get_active_interface())) {
+			return NULL;
+		}
+
+		return netspeed_tx(interface);
+	}
 #elif defined(__OpenBSD__) | defined(__FreeBSD__)
 	#include <string.h>
 	#include <ifaddrs.h>
