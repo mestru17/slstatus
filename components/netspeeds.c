@@ -64,10 +64,7 @@
 	const char *
 	netspeed_get_active_interface(void)
 	{
-		const char *interface;
-
-		interface = run_command("ip link show up | grep -m 1 \"BROADCAST\" | awk -F \": \" '{print $2}'");
-		return interface;
+		return run_command("ip link show up | grep -m 1 \"BROADCAST\" | awk -F \": \" '{print $2}'");
 	}
 
 	const char *
