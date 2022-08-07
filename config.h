@@ -61,6 +61,7 @@ static const char unknown_str[] = "n/a";
  * uptime              system uptime                   NULL
  * username            username of current user        NULL
  * vol_perc            OSS/ALSA volume in percent      mixer file (/dev/mixer)
+ * vol_perc_alsa       Master ALSA volume in percent   NULL
  *                                                     NULL on OpenBSD
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
@@ -74,6 +75,6 @@ static const struct arg args[] = {
 	{ disk_perc,        "<\x04 %s%%",  "/" },
 	{ cpu_perc,         "<\x05 %2s%%", NULL },
 	{ ram_used,         "<\x06 %s",    NULL },
-	{ keymap,           "<\x07  %s",   NULL },
+	{ vol_perc_alsa,    "<\x07 %s",    NULL },
 	{ datetime,         "<\x08  %s",   "%d-%m-%Y %H:%M" }, // EU/locale's date time representation
 };

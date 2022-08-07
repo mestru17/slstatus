@@ -214,4 +214,12 @@
 
 		return bprintf("%d", v & 0xff);
 	}
+
+	extern const char *run_command(const char *cmd);
+
+	const char *
+	vol_perc_alsa(void)
+	{
+		return run_command("amixer sget Master | awk -F \"[][]\" '/Left:/ {print $2}'");
+	}
 #endif
